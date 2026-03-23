@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
-import SidebarClient from "@/components/layout/SidebarClient";
-import { SidebarProvider } from "@/components/ui/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Footer from "@/components/layout/Footer";
 
@@ -34,19 +32,13 @@ export default function RootLayout({
         <TooltipProvider>
           <Header />
           
-          <SidebarProvider>
-            <div className="flex w-full min-h-screen">
-              <SidebarClient />
-              
-              <div className="flex-1 flex flex-col min-w-0 min-h-screen">
-                <main className="flex-1 w-full p-6 md:p-8 xl:p-10">
-                  {children}
-                </main>
-                
-                <Footer />
-              </div>
-            </div>
-          </SidebarProvider>
+          <div className="flex flex-col min-h-screen min-w-0">
+            <main className="flex-1 w-full px-4 md:px-6 py-6 md:py-8">
+              {children}
+            </main>
+            
+            <Footer />
+          </div>
         </TooltipProvider>
 
       </body>
